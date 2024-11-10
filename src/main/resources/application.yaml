@@ -1,1 +1,9 @@
-spring.application.name=fan-signal-api
+spring:
+  application:
+    name: fan-signal-api
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017
+      database: fan-signal
+      username: master
+      password: master
