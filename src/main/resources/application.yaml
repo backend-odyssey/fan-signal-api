@@ -1,6 +1,8 @@
 spring:
   application:
     name: fan-signal-api
+  jackson:
+    property-naming-strategy: SNAKE_CASE
   data:
     mongodb:
       uri: mongodb://localhost:27017
