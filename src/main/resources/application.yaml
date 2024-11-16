@@ -7,3 +7,4 @@ spring:
       database: fan-signal
       username: master
       password: master
+      authentication-database: admin

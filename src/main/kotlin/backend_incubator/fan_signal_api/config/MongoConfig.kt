@@ -12,9 +12,11 @@ import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.Primary
 import org.springframework.data.mongodb.config.AbstractReactiveMongoConfiguration
+import org.springframework.data.mongodb.config.EnableReactiveMongoAuditing
 import org.springframework.data.mongodb.core.ReactiveMongoTemplate
 
 @Configuration
+@EnableReactiveMongoAuditing
 class MongoConfig(private val mongoProperties: MongoProperties) : AbstractReactiveMongoConfiguration() {
 
     override fun getDatabaseName(): String {
@@ -23,7 +25,7 @@ class MongoConfig(private val mongoProperties: MongoProperties) : AbstractReacti
 
     @Bean
     override fun reactiveMongoClient(): MongoClient {
-        val credential = MongoCredential.createCredential(mongoProperties.username, mongoProperties.database, mongoProperties.password)
+        val credential = MongoCredential.createCredential(mongoProperties.username, mongoProperties.authenticationDatabase, mongoProperties.password)
         val connectionString = ConnectionString(mongoProperties.uri)
         return MongoClients.create(
             MongoClientSettings.builder()
