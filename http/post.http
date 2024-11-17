@@ -1,0 +1,9 @@
+### POST 생성
+POST http://localhost:8080/api/v1/post
+Content-Type: application/json
+
+{
+  "member_id": "test-id",
+  "content" : "TEST 글을 작성해봅니다.",
+  "photos": ["https://avatars.githubusercontent.com/u/46712693?v=4"]
+}
