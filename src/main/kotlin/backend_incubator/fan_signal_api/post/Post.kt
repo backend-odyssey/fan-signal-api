@@ -13,8 +13,8 @@ data class Post(
     val id: String? = null,
     @Field("member_id")
     val memberId: String,
-    val content: String,
-    val photos: List<String>? = emptyList(),
+    var content: String,
+    var photos: List<String>,
     @CreatedDate @Field("created_at")
     var createdAt: LocalDateTime? = null,
     @LastModifiedDate @Field("updated_at")

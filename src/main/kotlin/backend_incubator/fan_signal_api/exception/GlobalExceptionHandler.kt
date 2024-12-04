@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.RestControllerAdvice
 import org.springframework.web.reactive.resource.NoResourceFoundException
+import org.springframework.web.server.ServerWebInputException
 
 @RestControllerAdvice
 class GlobalExceptionHandler {
@@ -37,6 +38,16 @@ class GlobalExceptionHandler {
     @ExceptionHandler(IllegalArgumentException::class)
     fun handleIllegalArgumentException(ex: IllegalArgumentException): ResponseEntity<ErrorResponse> {
         logger.error("IllegalArgumentException occurred: ${ex.message}", ex)
+        val errorResponse = ErrorResponse(
+            status = ErrorCode.BAD_REQUEST.status,
+            message = ErrorCode.BAD_REQUEST.message
+        )
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse)
+    }
+
+    @ExceptionHandler(ServerWebInputException::class)
+    fun handleValidationExceptions(ex: ServerWebInputException): ResponseEntity<ErrorResponse> {
+        logger.error("ServerWebInputException occurred: ${ex.message}", ex)
         val errorResponse = ErrorResponse(
             status = ErrorCode.BAD_REQUEST.status,
             message = ErrorCode.BAD_REQUEST.message
