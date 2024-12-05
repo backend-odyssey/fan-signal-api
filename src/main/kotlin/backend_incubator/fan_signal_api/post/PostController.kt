@@ -12,7 +12,7 @@ import reactor.core.publisher.Mono
 class PostController(private val postService: PostService) {
     @PostMapping("")
     fun createPost(@Valid @RequestBody postCreateDto: PostCreateDto): Mono<ApiResponse<Void>> {
-        return postService.createPost(postCreateDto)
+        return postService.createPost(postCreateDto).then(Mono.just(ApiResponse.success()))
     }
 
     @PutMapping("/{id}")
@@ -20,6 +20,12 @@ class PostController(private val postService: PostService) {
         @Valid @RequestBody postUpdateDto: PostUpdateDto,
         @PathVariable id: String
     ): Mono<ApiResponse<Void>> {
-        return postService.updatePost(postUpdateDto, id)
+        return postService.updatePost(postUpdateDto, id).then(Mono.just(ApiResponse.success()))
     }
+
+    @DeleteMapping("/{id}")
+    fun deletePost(@PathVariable id: String): Mono<ApiResponse<Void>> {
+        return postService.deletePost(id).then(Mono.just(ApiResponse.success()))
+    }
+
 }

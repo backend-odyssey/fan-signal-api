@@ -9,10 +9,14 @@ Content-Type: application/json
 }
 
 ### POST 수정
-PUT http://localhost:8080/api/v1/post/675062da1479dc41e289d259
+@id = variable value
+PUT http://localhost:8080/api/v1/post/{{id}}
 Content-Type: application/json
 
 {
   "content" : "TEST 글을 수정해봅니다.",
   "photos": ["https://avatars.githubusercontent.com/u/46712693?v=4"]
 }
+
+### POST 삭제
+DELETE http://localhost:8080/api/v1/post/{{id}}
