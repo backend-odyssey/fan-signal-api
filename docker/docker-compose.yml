@@ -1,6 +1,19 @@
 version: '3.8'
 
 services:
+  redis:
+    image: redis:7.2.1-alpine
+    container_name: redis
+    ports:
+      - "6379:6379"
+    command: ["redis-server", "--requirepass", "master", "--appendonly", "yes"] # 비밀번호 설정 추가
+    environment:
+      - REDIS_PASSWORD=master
+    volumes:
+      - redis_data:/data/db
+    networks:
+      - app_network
+
   mongodb:
     image: mongo:latest
     container_name: mongodb
@@ -11,7 +24,15 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: master
     volumes:
       - mongo_data:/data/db
+    networks:
+      - app_network
 
 volumes:
+  redis_data:
+    driver: local
   mongo_data:
     driver: local
+
+networks:
+  app_network:
+    driver: bridge
