@@ -10,3 +10,8 @@ spring:
       username: master
       password: master
       authentication-database: admin
+    redis:
+      host: localhost
+      port: 6379
+      password: master
+      timeout: 60000
