@@ -20,3 +20,6 @@ Content-Type: application/json
 
 ### POST 삭제
 DELETE http://localhost:8080/api/v1/post/{{id}}
+
+### POST 조회
+GET http://localhost:8080/api/v1/post/{{id}}?memberId=test-id1

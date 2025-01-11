@@ -2,6 +2,7 @@ package backend_incubator.fan_signal_api.post
 
 import backend_incubator.fan_signal_api.common.ApiResponse
 import backend_incubator.fan_signal_api.post.dto.PostCreateDto
+import backend_incubator.fan_signal_api.post.dto.PostGetDto
 import backend_incubator.fan_signal_api.post.dto.PostUpdateDto
 import jakarta.validation.Valid
 import org.springframework.web.bind.annotation.*
@@ -28,4 +29,8 @@ class PostController(private val postService: PostService) {
         return postService.deletePost(id).then(Mono.just(ApiResponse.success()))
     }
 
+    @GetMapping("/{id}")
+    fun readPost(@PathVariable id: String, @RequestParam memberId: String): Mono<ApiResponse<PostGetDto>> {
+        return postService.readPost(id, memberId).map { ApiResponse.success(it) }
+    }
 }
