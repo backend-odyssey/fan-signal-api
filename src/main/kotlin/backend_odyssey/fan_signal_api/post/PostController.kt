@@ -1,9 +1,9 @@
-package backend_incubator.fan_signal_api.post
+package backend_odyssey.fan_signal_api.post
 
-import backend_incubator.fan_signal_api.common.ApiResponse
-import backend_incubator.fan_signal_api.post.dto.PostCreateDto
-import backend_incubator.fan_signal_api.post.dto.PostGetDto
-import backend_incubator.fan_signal_api.post.dto.PostUpdateDto
+import backend_odyssey.fan_signal_api.common.ApiResponse
+import backend_odyssey.fan_signal_api.post.dto.PostCreateDto
+import backend_odyssey.fan_signal_api.post.dto.PostGetDto
+import backend_odyssey.fan_signal_api.post.dto.PostUpdateDto
 import jakarta.validation.Valid
 import org.springframework.web.bind.annotation.*
 import reactor.core.publisher.Mono

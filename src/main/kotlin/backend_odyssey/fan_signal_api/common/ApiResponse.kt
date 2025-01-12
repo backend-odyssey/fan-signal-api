@@ -1,4 +1,4 @@
-package backend_incubator.fan_signal_api.common
+package backend_odyssey.fan_signal_api.common
 
 import com.fasterxml.jackson.annotation.JsonInclude
 

@@ -1,4 +1,4 @@
-package backend_incubator.fan_signal_api.post
+package backend_odyssey.fan_signal_api.post
 
 import org.springframework.data.annotation.CreatedDate
 import org.springframework.data.annotation.Id

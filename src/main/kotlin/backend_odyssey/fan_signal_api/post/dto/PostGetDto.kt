@@ -1,4 +1,4 @@
-package backend_incubator.fan_signal_api.post.dto
+package backend_odyssey.fan_signal_api.post.dto
 
 data class PostGetDto(
     val id: String,

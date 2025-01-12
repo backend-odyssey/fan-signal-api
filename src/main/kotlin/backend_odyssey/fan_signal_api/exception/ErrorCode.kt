@@ -1,4 +1,4 @@
-package backend_incubator.fan_signal_api.exception
+package backend_odyssey.fan_signal_api.exception
 
 import org.springframework.http.HttpStatus
 

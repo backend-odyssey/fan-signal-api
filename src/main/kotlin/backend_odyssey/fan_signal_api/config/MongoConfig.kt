@@ -1,4 +1,4 @@
-package backend_incubator.fan_signal_api.config
+package backend_odyssey.fan_signal_api.config
 
 import com.mongodb.ConnectionString
 import com.mongodb.MongoClientSettings
